@@ -3,6 +3,9 @@
 <html lang="pl">
 
 <body>
+Cyfry
 ${numbers}
+Wynik
+${result}
 </body>
 </html>

@@ -17,6 +17,6 @@ public class Numbers {
 
     @Override
     public String toString() {
-        return "numbers= " + numbers;
+        return numbers;
     }
 }
