@@ -5,8 +5,19 @@
 
 <body>
 <div style="margin: auto; width: 50%; background-color: #666666; color: white; text-align: center; font-size: 30px">
+<h2>Algorytm Luhna</h2>
 <form:form modelAttribute="numbers" action="/" method="post">
     <input type="text" name="numbers" placeholder="ciąg cyfr"/>
+    <button type="submit">Zatwierdź</button>
+</form:form>
+</div>
+<br>
+<div style="margin: auto; width: 50%; background-color: #666666; color: white; text-align: center; font-size: 30px">
+<h2>Algorytm najbliższego sąsiada</h2>
+<form:form modelAttribute="coordinates" action="/nna" method="post">
+Ile współrzędnych chcesz podać?
+<br>
+    <input type="text" name="quantity" placeholder="liczba współrzędnych"/>
     <button type="submit">Zatwierdź</button>
 </form:form>
 </div>

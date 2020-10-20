@@ -32,7 +32,6 @@ public class NumbersServiceImpl implements NumbersService {
         }
         for (int i = digits.length -2; i >= 0; i = i -2) {
             int singleDigit = digits[i];
-            System.out.println(singleDigit);
             singleDigit = singleDigit* 2;
             if (singleDigit > 9) {
                 singleDigit = singleDigit % 10 + 1;
