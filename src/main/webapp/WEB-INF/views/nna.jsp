@@ -6,7 +6,7 @@
 <body>
 <div style="margin: auto; width: 50%; background-color: #666666; color: white; text-align: center; font-size: 30px">
 <h2>Podaj współrzędne</h2>
-<form:form modelAttribute="coordinates" action="/nna-coordinates" method="post">
+<form:form modelAttribute="coordinates" action="/nna-coordinates" method="get">
 <div>
     <input type="text" name="xParameter" placeholder="x"/>
     <input type="text" name="yParameter" placeholder="y"/>

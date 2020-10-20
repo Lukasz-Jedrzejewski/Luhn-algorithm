@@ -6,7 +6,10 @@
 
 <body>
 <div style="margin: auto; width: 50%; background-color: #666666; color: white; text-align: center; font-size: 30px">
-<h2>Lub</h2>
+<h2>Punkt startowy</h2>
+${coordinates.xParameter}
+<br>
+${coordinates.yParameter}
 <form action="/nna">
     <input type="submit" value="od nowa">
 </form>

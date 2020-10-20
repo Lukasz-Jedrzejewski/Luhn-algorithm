@@ -7,6 +7,7 @@ import com.jedrzejewski.Luhn.algorithm.service.impl.NumbersServiceImpl;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @org.springframework.stereotype.Controller
@@ -42,15 +43,16 @@ public class Controller {
         return "nna";
     }
 
-    @PostMapping("/nna-coordinates")
+    @GetMapping("/nna-coordinates")
     public String getCoordinates(@ModelAttribute Coordinates coordinates, Model model) {
         coordinatesService.saveInList(coordinates);
         model.addAttribute("list", coordinatesService.loadList());
         return "nna-coordinates";
     }
 
-    @GetMapping("/nna-algorithm")
-    public String executeTheAlgorithm () {
+    @GetMapping("/nna-algorithm/{name}")
+    public String executeTheAlgorithm (Model model, @PathVariable String name) {
+        model.addAttribute("coordinates", coordinatesService.start(name));
         return "nna-algorithm";
     }
 }

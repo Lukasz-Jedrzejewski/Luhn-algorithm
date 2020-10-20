@@ -9,7 +9,7 @@
 <h2>Wybierz punkt początkowy</h2>
 <c:forEach items="${list}" var="item">
 <div>
-<form action="/nna-algorithm" modelAttribute="start" method="get">
+<form action="/nna-algorithm/${item.name}" modelAttribute="coordinates" method="get">
     <input type="submit" value="${item.name}">
 </form>
 </div>

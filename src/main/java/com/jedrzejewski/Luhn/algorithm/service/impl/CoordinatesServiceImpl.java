@@ -21,4 +21,15 @@ public class CoordinatesServiceImpl implements CoordinatesService {
     public List<Coordinates> loadList() {
         return list;
     }
+
+    @Override
+    public Coordinates start(String name) {
+        Coordinates start = null;
+        for (Coordinates coordinatesByName : list) {
+            if (coordinatesByName.getName().equals(name)) {
+                start = coordinatesByName;
+            }
+        }
+        return start;
+    }
 }

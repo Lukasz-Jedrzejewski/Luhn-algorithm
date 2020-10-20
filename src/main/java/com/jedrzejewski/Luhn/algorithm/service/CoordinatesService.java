@@ -8,4 +8,5 @@ public interface CoordinatesService {
 
     void saveInList(Coordinates coordinates);
     List<Coordinates> loadList();
+    Coordinates start(String name);
 }
