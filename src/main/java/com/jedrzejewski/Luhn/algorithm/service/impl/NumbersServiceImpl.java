@@ -7,6 +7,20 @@ import org.springframework.stereotype.Service;
 public class NumbersServiceImpl implements NumbersService {
     @Override
     public boolean validate(String numbers) {
+        if (luhnAlgorithm(numbers) % 10 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public int getACheckDigit(String numbers) {
+        return luhnAlgorithm(numbers) % 10;
+    }
+
+    @Override
+    public int luhnAlgorithm(String numbers) {
         int[] digits = new int[numbers.length()];
         for (int i = 0; i < numbers.length(); i++) {
             digits[i] = Integer.parseInt(numbers.substring(i, i + 1));
@@ -23,10 +37,6 @@ public class NumbersServiceImpl implements NumbersService {
         for (int i = 0; i < digits.length; i++) {
             sum+= digits[i];
         }
-        if (sum % 10 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return sum;
     }
 }
