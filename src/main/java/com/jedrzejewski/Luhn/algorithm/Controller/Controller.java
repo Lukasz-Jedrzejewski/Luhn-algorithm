@@ -26,6 +26,9 @@ public class Controller {
 
     @PostMapping("/")
     public String post(@ModelAttribute Numbers numbers, Model model){
+        if (!numbersService.checkDigits(numbers.toString())) {
+            return "badRequest";
+        }
         model.addAttribute("result", numbersService.validate(numbers.toString()));
         model.addAttribute("checkDigit", numbersService.getACheckDigit(numbers.toString()));
         return "response";

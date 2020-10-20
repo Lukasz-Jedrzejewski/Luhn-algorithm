@@ -24,9 +24,11 @@ public class NumbersServiceImpl implements NumbersService {
 
     @Override
     public int luhnAlgorithm(String numbers) {
-        int[] digits = new int[numbers.length()];
-        for (int i = 0; i < numbers.length(); i++) {
-            digits[i] = Integer.parseInt(numbers.substring(i, i + 1));
+        String regex = "([0-9+-]*\\)*\\(*\\s*)+";
+        String numbersWithoutSpaces = numbers.replaceAll("\\s+", "");
+        int[] digits = new int[numbersWithoutSpaces.length()];
+        for (int i = 0; i < numbersWithoutSpaces.length(); i++) {
+            digits[i] = Integer.parseInt(numbersWithoutSpaces.substring(i, i + 1));
         }
         for (int i = digits.length -2; i >= 0; i = i -2) {
             int singleDigit = digits[i];
@@ -42,5 +44,15 @@ public class NumbersServiceImpl implements NumbersService {
             sum+= digits[i];
         }
         return sum;
+    }
+
+    @Override
+    public boolean checkDigits(String numbers) {
+        String regex = "([0-9+-]*\\)*\\(*\\s*)+";
+        numbers.replaceAll("\\s+", "");
+        if (numbers.matches(regex)) {
+            return true;
+        }
+        return false;
     }
 }

@@ -23,6 +23,9 @@ Cyfra kontrolna:
 <br>
 ${checkDigit}
 </div>
-</div>
+<div></div>
+<form action="/">
+    <input type="submit" value="Jeszcze raz">
+</form></div>
 </body>
 </html>
