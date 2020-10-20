@@ -14,12 +14,10 @@
 <br>
 <div style="margin: auto; width: 50%; background-color: #666666; color: white; text-align: center; font-size: 30px">
 <h2>Algorytm najbliższego sąsiada</h2>
-<form:form modelAttribute="coordinates" action="/nna" method="post">
-Ile współrzędnych chcesz podać?
+<form action="/nna">
+    <input type="submit" value="Start">
+</form>
 <br>
-    <input type="text" name="quantity" placeholder="liczba współrzędnych"/>
-    <button type="submit">Zatwierdź</button>
-</form:form>
 </div>
 </body>
 </html>

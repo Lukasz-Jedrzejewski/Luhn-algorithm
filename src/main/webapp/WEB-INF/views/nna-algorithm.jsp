@@ -6,17 +6,9 @@
 
 <body>
 <div style="margin: auto; width: 50%; background-color: #666666; color: white; text-align: center; font-size: 30px">
-<h2>Wybierz punkt początkowy</h2>
-<c:forEach items="${list}" var="item">
-<div>
-<form action="/nna-algorithm" modelAttribute="start" method="get">
-    <input type="submit" value="${item.name}">
-</form>
-</div>
-</c:forEach>
 <h2>Lub</h2>
 <form action="/nna">
-    <input type="submit" value="dodaj kolejny">
+    <input type="submit" value="od nowa">
 </form>
 </div>
 </body>

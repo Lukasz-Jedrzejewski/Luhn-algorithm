@@ -2,28 +2,27 @@ package com.jedrzejewski.Luhn.algorithm.Controller;
 
 import com.jedrzejewski.Luhn.algorithm.model.Coordinates;
 import com.jedrzejewski.Luhn.algorithm.model.Numbers;
+import com.jedrzejewski.Luhn.algorithm.service.impl.CoordinatesServiceImpl;
 import com.jedrzejewski.Luhn.algorithm.service.impl.NumbersServiceImpl;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.http.HttpSession;
-import java.util.Arrays;
-
 @org.springframework.stereotype.Controller
 public class Controller {
 
     private final NumbersServiceImpl numbersService;
+    private final CoordinatesServiceImpl coordinatesService;
 
-    public Controller(NumbersServiceImpl numbersService) {
+    public Controller(NumbersServiceImpl numbersService, CoordinatesServiceImpl coordinatesService) {
         this.numbersService = numbersService;
+        this.coordinatesService = coordinatesService;
     }
 
     @GetMapping("/")
     public String get(Model model) {
         model.addAttribute("numbers", new Numbers());
-        model.addAttribute("coordinates", new Coordinates());
         return "index";
     }
 
@@ -37,14 +36,21 @@ public class Controller {
         return "response";
     }
 
-    @PostMapping("/nna")
-    public String getQuantity(@ModelAttribute Coordinates coordinates, Model model) {
-        model.addAttribute("coordinates", coordinates);
+    @GetMapping("/nna")
+    public String getQuantity(Model model) {
+        model.addAttribute("coordinates", new Coordinates());
         return "nna";
     }
 
     @PostMapping("/nna-coordinates")
-    public String getCoordinates(@ModelAttribute Coordinates coordinates) {
+    public String getCoordinates(@ModelAttribute Coordinates coordinates, Model model) {
+        coordinatesService.saveInList(coordinates);
+        model.addAttribute("list", coordinatesService.loadList());
         return "nna-coordinates";
+    }
+
+    @GetMapping("/nna-algorithm")
+    public String executeTheAlgorithm () {
+        return "nna-algorithm";
     }
 }
