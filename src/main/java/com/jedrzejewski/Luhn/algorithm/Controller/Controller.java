@@ -1,5 +1,6 @@
 package com.jedrzejewski.Luhn.algorithm.Controller;
 
+import com.jedrzejewski.Luhn.algorithm.model.Coordinates;
 import com.jedrzejewski.Luhn.algorithm.model.Numbers;
 import com.jedrzejewski.Luhn.algorithm.service.impl.NumbersServiceImpl;
 import org.springframework.ui.Model;
@@ -21,6 +22,7 @@ public class Controller {
     @GetMapping("/")
     public String get(Model model) {
         model.addAttribute("numbers", new Numbers());
+        model.addAttribute("coordinates", new Coordinates());
         return "index";
     }
 
@@ -32,5 +34,10 @@ public class Controller {
         model.addAttribute("result", numbersService.validate(numbers.toString()));
         model.addAttribute("checkDigit", numbersService.getACheckDigit(numbers.toString()));
         return "response";
+    }
+
+    @PostMapping("/nna")
+    public String getQuantity(@ModelAttribute Coordinates coordinates) {
+        return "nna";
     }
 }
