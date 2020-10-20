@@ -1,11 +1,13 @@
 package com.jedrzejewski.Luhn.algorithm.model;
 
+import java.util.Arrays;
+
 public class Coordinates {
 
     private int quantity;
     private double[] xParameter;
     private double[] yParameter;
-    private double[][] coordinates;
+    private String[] name;
 
     public Coordinates() {
     }
@@ -34,11 +36,21 @@ public class Coordinates {
         this.yParameter = yParameter;
     }
 
-    public double[][] getCoordinates() {
-        return coordinates;
+    public String[] getName() {
+        return name;
     }
 
-    public void setCoordinates(double[][] coordinates) {
-        this.coordinates = coordinates;
+    public void setName(String[] name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Coordinates{" +
+                "quantity=" + quantity +
+                ", xParameter=" + Arrays.toString(xParameter) +
+                ", yParameter=" + Arrays.toString(yParameter) +
+                ", name=" + Arrays.toString(name) +
+                '}';
     }
 }

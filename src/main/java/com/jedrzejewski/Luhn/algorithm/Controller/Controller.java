@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.Arrays;
 
 @org.springframework.stereotype.Controller
 public class Controller {
@@ -37,7 +38,13 @@ public class Controller {
     }
 
     @PostMapping("/nna")
-    public String getQuantity(@ModelAttribute Coordinates coordinates) {
+    public String getQuantity(@ModelAttribute Coordinates coordinates, Model model) {
+        model.addAttribute("coordinates", coordinates);
         return "nna";
+    }
+
+    @PostMapping("/nna-coordinates")
+    public String getCoordinates(@ModelAttribute Coordinates coordinates) {
+        return "nna-coordinates";
     }
 }
