@@ -8,5 +8,9 @@ public interface CoordinatesService {
 
     void saveInList(Coordinates coordinates);
     List<Coordinates> loadList();
+    List<String> loadRoadList();
     Coordinates start(String name);
+    List<Double> lengthOfTheRoad(String startPointName, List<Coordinates> cordsList);
+    double executeAlgorithm(double startXParam, double startYParam, double currentXParam, double currentYParam);
+    void clear();
 }

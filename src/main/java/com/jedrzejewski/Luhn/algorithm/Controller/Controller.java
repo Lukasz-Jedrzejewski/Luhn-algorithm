@@ -24,6 +24,7 @@ public class Controller {
     @GetMapping("/")
     public String get(Model model) {
         model.addAttribute("numbers", new Numbers());
+        coordinatesService.clear();
         return "index";
     }
 
@@ -53,6 +54,8 @@ public class Controller {
     @GetMapping("/nna-algorithm/{name}")
     public String executeTheAlgorithm (Model model, @PathVariable String name) {
         model.addAttribute("coordinates", coordinatesService.start(name));
+        model.addAttribute("length", coordinatesService.lengthOfTheRoad(name, coordinatesService.loadList()));
+        model.addAttribute("road", coordinatesService.loadRoadList());
         return "nna-algorithm";
     }
 }

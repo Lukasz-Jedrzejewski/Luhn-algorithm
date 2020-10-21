@@ -6,13 +6,14 @@
 
 <body>
 <div style="margin: auto; width: 50%; background-color: #666666; color: white; text-align: center; font-size: 30px">
-<h2>Punkt startowy</h2>
-${coordinates.xParameter}
-<br>
-${coordinates.yParameter}
-<form action="/nna">
-    <input type="submit" value="od nowa">
-</form>
+    <h2>droga</h2>
+        ${road}
+        <br>
+    <h2>odległość między punktami</h2>
+        ${length}
+    <form action="/">
+        <input type="submit" value="start">
+    </form>
 </div>
 </body>
 </html>
